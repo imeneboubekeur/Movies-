@@ -60,7 +60,7 @@ export default function Carousel({url,link,property,property1,property3}){
         if (width < 480) {
           setSlidesToShow(2);
         } else if (width < 768) {
-          setSlidesToShow(4);
+          setSlidesToShow(4); 
         } else if (width < 1024) {
           setSlidesToShow(6);
         } else {
