@@ -172,27 +172,36 @@ useEffect(()=>{
     )
 }
 export function ElementHome({url,title,category,img,slides}){
+   const [slidesToShow, setSlidesToShow] = useState(8);
+  
+    // detect window width and set slides
+    useEffect(() => {
+      const updateSlides = () => {
+        const width = window.innerWidth;
+        if (width < 480) {
+          setSlidesToShow(2);
+        } else if (width < 800) {
+          setSlidesToShow(slides-2);
+        } else if (width < 1024) {
+          setSlidesToShow(slides);
+        } else {
+          setSlidesToShow(slides);
+        }
+      };
+  
+      updateSlides(); // run once at mount
+      window.addEventListener("resize", updateSlides);
+  
+      return () => window.removeEventListener("resize", updateSlides);
+    }, []);
     const settings = {
-       slidesToShow: slides,
-  slidesToScroll:slides ,
+       slidesToShow: slidesToShow,
+  slidesToScroll:slidesToShow ,
   
   speed: 1000,
   infinite: true,
   dots: true,
-  arrows: true,responsive: [         // make it responsive
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: slides, slidesToScroll: slides}
-      },
-      {
-        breakpoint: 800,
-        settings: { slidesToShow: slides-2, slidesToScroll: slides-2 }
-      },
-      {
-        breakpoint: 480,
-        settings: { slidesToShow: 2, slidesToScroll: 2 }
-      }
-    ],
+  arrows: true,
      nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow /> 
 }

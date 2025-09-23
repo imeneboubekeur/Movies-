@@ -109,25 +109,34 @@ export function SingleD({data}){
     )
 }
 export function Seasons({id}){
+   const [slidesToShow, setSlidesToShow] = useState(8);
+  
+    // detect window width and set slides
+    useEffect(() => {
+      const updateSlides = () => {
+        const width = window.innerWidth;
+        if (width < 480) {
+          setSlidesToShow(2);
+        } else if (width < 768) {
+          setSlidesToShow(4);
+        } else if (width < 1024) {
+          setSlidesToShow(6);
+        } else {
+          setSlidesToShow(8);
+        }
+      };
+  
+      updateSlides(); // run once at mount
+      window.addEventListener("resize", updateSlides);
+  
+      return () => window.removeEventListener("resize", updateSlides);
+    }, []);
     const settings = {
     dots: true,           // show dots below slider
     infinite: true,       // loop slides
     speed: 500,           // animation speed (ms)
-    slidesToShow: 8,      // number of slides visible
-    slidesToScroll: 8,responsive: [         // make it responsive
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 6, slidesToScroll: 6}
-      },
-      {
-        breakpoint: 600,
-        settings: { slidesToShow: 6, slidesToScroll: 6 }
-      },
-      {
-        breakpoint: 480,
-        settings: { slidesToShow: 2, slidesToScroll: 2 }
-      }
-    ],
+    slidesToShow: slidesToShow,      // number of slides visible
+    slidesToScroll: slidesToShow,
      nextArrow: <SampleNextArrow />,
   prevArrow: <SamplePrevArrow />
 }

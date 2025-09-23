@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Header({ searchPage }) {
      const [isOpen, setIsOpen] = useState(false);
     return (<div className="container1">
-        <h1 className="brand">MOVIES.COM</h1>
+      <Link to="">  <h1 className="brand">MOVIES.COM</h1></Link>
         <div  className="menu-toggle">
          <button style={{position:"relative"}}
        
