@@ -330,13 +330,14 @@ border-bottom: none;
 .links li{
   width:100%;
   margin:0 auto;
-  padding:1rem;
+ 
   text-align: center;
    border-bottom: 0.01px solid black;
 }
 .links li a{
- /* display:block;
-  width:100%;*/
+  display:block;
+  
+  width:100%
  
 }
   .nav-links li {
