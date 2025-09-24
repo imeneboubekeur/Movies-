@@ -3,7 +3,7 @@ import Banner from "./banner";
 import { useState,useEffect } from "react";
 import { SearchOverlay } from "./searchOverlay";
 import { useLocation } from "react-router-dom";
-
+import Footer from "./footer"
 export  function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -51,6 +51,6 @@ isClosing={isClosing}
 />
       </div>  )}
         
-        
+        <Footer/>
    </> )
 }

@@ -16,10 +16,11 @@ export  function Element({category,data}){
   }
     return ( <NavLink to ={`/${category}/${data.id}`}> 
  <div className="elements" >
-  <div className="image-wrapper">
+  <div className="image-wrapper" >
         <img src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}>
-        
+      
         </img>
+        <div className="shadow" ></div>
 </div>
         <div className="title">
            

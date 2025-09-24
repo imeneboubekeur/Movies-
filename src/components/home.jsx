@@ -126,7 +126,9 @@ useEffect(()=>{
             <Slider  className="slide"{...settings} style={{
 
                width:"98%",
-               margin:"0 auto"
+               margin:"0 auto",
+                 marginTop:"20px"
+
             }}>
                 
              {movies.map((movie) => 
@@ -193,7 +195,7 @@ export function ElementHome({url,title,category,img,slides}){
       window.addEventListener("resize", updateSlides);
   
       return () => window.removeEventListener("resize", updateSlides);
-    }, []);
+    }, [slides]);
     const settings = {
        slidesToShow: slidesToShow,
   slidesToScroll:slidesToShow ,
@@ -221,7 +223,7 @@ useEffect(()=>{
         <div className="element">
             <h2 className="subTitle">{title}</h2>
             <p>spend the movie night with your friends.</p>
-            <Slider {...settings}>
+            <Slider  {...settings}>
                 
              {movies.map((movie) => {
                 return <Link  key={movie.id} to ={`/${category}/${movie.id}`}>

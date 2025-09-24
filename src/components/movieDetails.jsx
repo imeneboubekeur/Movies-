@@ -85,7 +85,7 @@ export function Credits({creditss}){
   
     return(
         <div className="actors">
-          
+          <div className="actorsContainer">
              <div key={1} className="singleActor">
                    <img src={zendaya}>
         
@@ -122,8 +122,9 @@ export function Credits({creditss}){
         </img> 
         <p>Angelina Jolie</p>
                 </div>
-        
         </div>
+        </div>
+
     )
 }
 export function Description({data,credits}){

@@ -88,7 +88,11 @@ export function Episodes(){
             const season = useParams().season;
             const link=`/series/${id}/${season}`
     const url=`https://api.themoviedb.org/3/tv/${id}/season/${season}?api_key=7c1df1bd8915cee5d5406945b86e9839&language=en-US`
-return (
+return (<>
+                <h2 className="subTitle"style={{
+                    marginTop:"30px"
+                }}>EPISODES</h2>
+
     <Carousel
      url={url} 
      link={link}
@@ -96,6 +100,7 @@ return (
       property1="still_path"
       property3="episode_number"
       />
+      </>
 )
 }
 
@@ -104,7 +109,11 @@ export function Series(){
             const season = useParams().season;
             const link=`/series/${id}/${season}`
     const url=`https://api.themoviedb.org/3/tv/${id}?api_key=7c1df1bd8915cee5d5406945b86e9839&language=en-US`
-return (
+return (<>
+                        <h2 className="subTitle"style={{
+                    marginTop:"30px"
+                }}>SERIES</h2>
+
     <Carousel
      url={url} 
      link={link}
@@ -112,6 +121,7 @@ return (
       property1="poster_path"
       property3=""
       />
+      </>
 )
 }
 export function Credits(){

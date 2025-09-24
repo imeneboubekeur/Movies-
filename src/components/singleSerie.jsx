@@ -160,7 +160,7 @@ return(
  <img src={`https://image.tmdb.org/t/p/w200/${serie.poster_path}`}>
         
         </img>
-
+<div ></div>
         <div className="title">
           
             {serie.title || serie.name}</div>

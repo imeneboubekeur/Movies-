@@ -1,7 +1,12 @@
-import {  NavLink,Link } from "react-router-dom";
-import { useState } from "react";
+import {  NavLink,Link,useLocation } from "react-router-dom";
+import { useState,useEffect } from "react";
 export default function Header({ searchPage }) {
      const [isOpen, setIsOpen] = useState(false);
+       const location = useLocation();
+     
+      useEffect(() => {
+         setIsOpen(false);
+       }, [location.pathname]);
     return (<div className="container1">
       <Link to="">  <h1 className="brand">MOVIES.COM</h1></Link>
         <div  className="menu-toggle">

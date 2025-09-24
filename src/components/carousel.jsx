@@ -94,9 +94,10 @@ setSeries(data[property])
 },[url,property])
   console.log("seasonssss",series)
 
-return(
-<Slider {...settings}>
-        
+return(<>
+
+<Slider className="titleAdd" {...settings}>
+
         {series.map((serie) => (
         
 <Link to={ serie[property3] ? `${link}/${serie[property3]}` : `${link}`}>
@@ -117,6 +118,7 @@ return(
  
 
       </Slider>
+      </>
 )
 
 }
